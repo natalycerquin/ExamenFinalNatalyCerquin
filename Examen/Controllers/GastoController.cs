@@ -35,7 +35,7 @@ namespace Examen.Controllers
         [HttpPost]
         public ActionResult Crear(Gastos gasto)
         {
-            // ViewBag.Cuenta = DBContext.Tarjetas;
+            ViewBag.Cuenta = ICuenta.retonarCuenta(montoTemp.Id);
             Validar(gasto);
             if (ModelState.IsValid)
             {
