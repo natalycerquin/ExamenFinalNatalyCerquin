@@ -17,7 +17,7 @@ namespace Examen.Controllers
             this.ICuenta = ICuenta;
             this.IGasto = IGasto;
         }
-        public static Cuenta montoTemp;
+        public  Cuenta montoTemp;
         public IActionResult Index()
         {
             return View();
@@ -43,7 +43,7 @@ namespace Examen.Controllers
                 gasto.CuentaId = montoTemp.Id;
 
                 IGasto.saveGasto(gasto);
-                ICuenta.update(montoTemp);
+                ICuenta.update(montoTemp.Id, montoTemp.Saldo);
                 return RedirectToActionPermanent("Index", "Cuenta");
             }
             return View("Crear");

@@ -13,6 +13,6 @@ namespace Examen.Interface
         void guardarCuenta(Cuenta cuenta);
         Cuenta cuenta(int id);
         List<Cuenta> retonarCuenta(int id);
-        void update(Cuenta cuenta);
+        void update(int  id, decimal saldo);
     }
 }

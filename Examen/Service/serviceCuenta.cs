@@ -44,10 +44,21 @@ namespace Examen.Service
             return contextApp.Cuentas.Where(g => g.Nombres.Contains(criterio)).Include(a => a.Gastos).ToList();
         }
 
-        public void update(Cuenta cuenta)
+        //public void update(int id,)
+        //{
+        //   var cuenta contextApp.Cuentas.Where(a => a.Id == id).FirstOrDefault();
+
+        //    contextApp.Cuentas.Update(cuenta);
+        //    contextApp.SaveChanges();
+        //}
+
+        public void update(int id, decimal saldo)
         {
-            contextApp.Cuentas.Update(cuenta);
+            Cuenta cuenta =  contextApp.Cuentas.Where(a => a.Id == id).FirstOrDefault();
+
+            cuenta.Saldo = saldo;
             contextApp.SaveChanges();
+
         }
 
         List<Cuenta> InterfaceCuenta.retonarCuenta(int id)
