@@ -1,0 +1,21 @@
+{
+  "id": "347e8811-b00d-47dd-82fe-83be3e9e2707",
+  "version": "2.0",
+  "name": "examenfinal",
+  "url": "",
+  "tests": [{
+    "id": "f3a81b87-e828-46c0-968d-eb51cab24c03",
+    "name": "Untitled",
+    "commands": []
+  }],
+  "suites": [{
+    "id": "64df27f4-25da-4ad1-b597-2c92f0c4fcb6",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f3a81b87-e828-46c0-968d-eb51cab24c03"]
+  }],
+  "urls": [],
+  "plugins": []
+}

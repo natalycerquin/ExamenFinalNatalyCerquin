@@ -1,6 +1,10 @@
+using Examen.Interface;
+using Examen.Models;
+using Examen.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +28,14 @@ namespace Examen
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<ContextApp>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
+            );
+
+            services.AddTransient<InterfaceCuenta, serviceCuenta>();
+            services.AddTransient<InterfaceGasto, serviceGasto>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +62,7 @@ namespace Examen
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Cuenta}/{action=Index}/{id?}");
             });
         }
     }
